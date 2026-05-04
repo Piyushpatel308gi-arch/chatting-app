@@ -1,6 +1,6 @@
 // src/components/Chat/Message.jsx
 import { useState } from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 
 const Message = ({ message, isSafeMode }) => {
   const { currentUser } = useAuth();

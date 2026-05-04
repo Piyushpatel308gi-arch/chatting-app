@@ -1,10 +1,10 @@
 // src/components/Calls/CallPanel.jsx
-import { useCall } from "../../contexts/CallContext";
+import { useCall } from "../../hooks/useCall";
 import { FiPhoneOff, FiMic, FiMicOff, FiVideo, FiVideoOff } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 
 const CallPanel = () => {
-  const { localStream, remoteStream, endCall, callType, isCallActive } = useCall();
+  const { localStream, remoteStream, endCall, callType } = useCall();
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoEnabled, setIsVideoEnabled] = useState(callType === "video");
   const localVideoRef = useRef(null);

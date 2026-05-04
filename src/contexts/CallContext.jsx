@@ -1,5 +1,6 @@
 // src/contexts/CallContext.jsx
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { CallContext } from "./CallContextContext";
 import { db, auth } from "../firebase";
 import {
   collection,
@@ -9,18 +10,13 @@ import {
   onSnapshot,
   updateDoc,
   doc,
-  getDoc,
-  deleteDoc,
 } from "firebase/firestore";
 import Peer from "simple-peer";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 
-const CallContext = createContext();
 
-export const useCall = () => useContext(CallContext);
-
-export const CallProvider = ({ children }) => {
+export function CallProvider({ children }) {
   const [incomingCall, setIncomingCall] = useState(null);
   const [activeCall, setActiveCall] = useState(null);
   const [localStream, setLocalStream] = useState(null);

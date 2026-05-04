@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useAuth } from '../../contexts/AuthContext';
-import { useCall } from '../../contexts/CallContext';
+import { useAuth } from '../../hooks/useAuth';
+import { useCall } from '../../hooks/useCall';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import { deriveSafeKey } from '../../encryption';
 
 const ChatRoom = ({ chatId }) => {
   const { currentUser } = useAuth();
-  const { callState, startCall } = useCall();
+  const { startCall } = useCall();
   const [safeMode, setSafeMode] = useState(false);
   const [safeKey, setSafeKey] = useState(null);
   const [chatData, setChatData] = useState(null);

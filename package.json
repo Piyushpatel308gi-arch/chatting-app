@@ -12,7 +12,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "axios": "^1.16.0",
-    "cloudinary-react": "^1.8.1",
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.21.0",
     "crypto-js": "^4.2.0",
     "emoji-picker-react": "^4.19.1",
     "firebase": "^12.12.1",

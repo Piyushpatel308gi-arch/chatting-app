@@ -1,6 +1,6 @@
 // src/components/Chat/Chat.jsx
 import { useState, useEffect, useRef } from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 import { db } from "../../firebase";
 import {
   collection,
@@ -14,17 +14,16 @@ import Message from "./Message";
 import MessageInput from "./MessageInput";
 import SafeChatToggle from "../SafeChatToggle";
 import CallPanel from "../Calls/CallPanel";
-import { useCall } from "../../contexts/CallContext";
+import { useCall } from "../../hooks/useCall";
 import { FiPhone, FiVideo, FiLogOut, FiUsers } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 const Chat = () => {
   const { currentUser, logout } = useAuth();
-  const { startCall, endCall, isCallActive } = useCall();
+  const { startCall, isCallActive } = useCall();
   const [messages, setMessages] = useState([]);
   const [isSafeMode, setIsSafeMode] = useState(false);
   const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
   const [showUsers, setShowUsers] = useState(false);
   const messagesEndRef = useRef(null);
 

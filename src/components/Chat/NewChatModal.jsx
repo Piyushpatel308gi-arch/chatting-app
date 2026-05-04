@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 
 const NewChatModal = ({ onClose, onChatCreated }) => {
   const { currentUser } = useAuth();
@@ -9,9 +9,10 @@ const NewChatModal = ({ onClose, onChatCreated }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const filteredUsers = searchTerm.trim().length < 2 ? [] : users;
+
   useEffect(() => {
     if (searchTerm.trim().length < 2) {
-      setUsers([]);
       return;
     }
     const fetchUsers = async () => {
@@ -76,11 +77,11 @@ const NewChatModal = ({ onClose, onChatCreated }) => {
           autoFocus
         />
         {loading && <p>Searching...</p>}
-        {!loading && users.length === 0 && searchTerm.length >= 2 && (
+        {!loading && filteredUsers.length === 0 && searchTerm.length >= 2 && (
           <p>No users found</p>
         )}
         <ul>
-          {users.map(user => (
+          {filteredUsers.map(user => (
             <li key={user.uid} onClick={() => startChat(user)}>
               {user.email}
             </li>

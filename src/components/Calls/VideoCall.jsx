@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const VideoCall = ({ localStream, remoteStream, onEnd }) => {
   const localVideoRef = useRef(null);

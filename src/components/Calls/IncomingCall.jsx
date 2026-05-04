@@ -1,5 +1,5 @@
 // src/components/Calls/IncomingCall.jsx
-import { useCall } from "../../contexts/CallContext";
+import { useCall } from "../../hooks/useCall";
 import { FiPhone, FiPhoneOff } from "react-icons/fi";
 
 const IncomingCall = () => {

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { uploadMedia } from '../../cloudinary';
 
 const MediaUpload = forwardRef(({ onUpload, mediaType }, ref) => {

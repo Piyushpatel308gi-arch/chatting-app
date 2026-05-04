@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   collection,
   query,
@@ -7,7 +7,7 @@ import {
   orderBy,
 } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import NewChatModal from './NewChatModal';
 
 const Sidebar = ({ onSelectChat, selectedChatId }) => {

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import { decryptText } from '../../encryption';
 
 const MessageList = ({ chatId, safeKey }) => {
@@ -18,7 +18,7 @@ const MessageList = ({ chatId, safeKey }) => {
           if (msg.encrypted && msg.text && msg.iv) {
             try {
               msg.text = decryptText(msg.text, safeKey, msg.iv);
-            } catch (e) {
+            } catch {
               msg.text = '[Unable to decrypt]';
             }
           }
