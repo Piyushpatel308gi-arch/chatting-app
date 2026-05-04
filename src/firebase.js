@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDnNAG-0Fp9JM9s-gduvgpetQq4Wfzh_gU",
-  authDomain: "chattingapp-bf6a7.firebaseapp.com",
-  projectId: "chattingapp-bf6a7",
-  storageBucket: "chattingapp-bf6a7.firebasestorage.app",
-  messagingSenderId: "189493526708",
-  appId: "1:189493526708:web:1abbbe07ceca017a4817e1",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: "G-S3SSBD2JCZ"
 };
 

@@ -6,5 +6,15 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   define: {
     'process.env': {}
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  },
+  server: {
+    historyApiFallback: true
   }
 })

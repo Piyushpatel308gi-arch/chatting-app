@@ -6,6 +6,7 @@ import { CallProvider } from "./contexts/CallContext";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Chat from "./components/Chat/Chat";
+import PrivateChat from "./components/Chat/PrivateChat";
 import IncomingCall from "./components/Calls/IncomingCall";
 import { Toaster } from "react-hot-toast";
 
@@ -27,6 +28,14 @@ function AppContent() {
         <Route path="/register" element={<Register />} />
         <Route
           path="/chat"
+          element={
+            <ProtectedRoute>
+              <PrivateChat />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/group-chat"
           element={
             <ProtectedRoute>
               <Chat />
