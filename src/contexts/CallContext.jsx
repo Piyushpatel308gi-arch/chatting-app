@@ -1,6 +1,8 @@
 // src/contexts/CallContext.jsx
 import { useEffect, useRef, useState } from "react";
 import { CallContext } from "./CallContextContext";
+
+export { CallContext };
 import { db, auth } from "../firebase";
 import {
   collection,

@@ -1,6 +1,8 @@
 // src/contexts/AuthContext.jsx
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContextContext";
+
+export { AuthContext };
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
